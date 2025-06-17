@@ -1,0 +1,19 @@
+<!doctype html>
+<title>Record Hours</title>
+<h1>Record Hours</h1>
+<form method="post">
+  <label>Work Type: <input name="work_type"></label><br>
+  <label>Start Time: <input type="datetime-local" name="start_time"></label><br>
+  <label>End Time: <input type="datetime-local" name="end_time"></label><br>
+  <label>Description:<br><textarea name="description"></textarea></label><br>
+  <button type="submit">Submit</button>
+</form>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
