@@ -1,0 +1,17 @@
+<!doctype html>
+<title>Work Log</title>
+<h1>Welcome {{ user.name }}</h1>
+<p><a href="{{ url_for('record') }}">Record hours</a> | <a href="{{ url_for('logout') }}">Logout</a></p>
+<table border="1">
+  <tr><th>Name</th><th>Work Type</th><th>Start</th><th>End</th><th>Hours</th><th>Description</th></tr>
+  {% for e in entries %}
+    <tr>
+      <td>{{ e['name'] }}</td>
+      <td>{{ e['work_type'] }}</td>
+      <td>{{ e['start_time'] }}</td>
+      <td>{{ e['end_time'] }}</td>
+      <td>{{ '%.2f'|format(e['hours']) }}</td>
+      <td>{{ e['description'] }}</td>
+    </tr>
+  {% endfor %}
+</table>
